@@ -1,0 +1,278 @@
+.sort_icon{
+  width: 32rpx;
+  height: 32rpx;
+}
+
+.menu_title {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #f7f7f7;
+  background: #fff;
+}
+
+.nav-child {
+  display: flex;
+  text-align: center;
+  height: 48rpx;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  margin: 20rpx 0;
+}
+
+.nav-title {
+  display: inline-block;
+}
+
+.icon {
+  display: inline-block;
+  border: 4px solid transparent;
+  border-top: 4px solid #9b9b9b;
+  margin-left: 5px;
+  margin-top: 10rpx;
+}
+
+.container {
+  position: relative;
+  z-index: 9;
+  font-size: 14px;
+}
+
+
+.slidedown {
+  transform: translateY(0%);
+}
+
+.district {
+  position: absolute;
+  display: none;
+  z-index:9;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 600rpx;
+}
+
+.district .half {
+  overflow-y: scroll;
+  float: left;
+  width: 50%;
+  height: 600rpx;
+  line-height: 80rpx;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.half view {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  padding-left: 15rpx;
+}
+
+.half-left {
+  background: #f7f7f7;
+}
+
+.half-center {
+  background: #fff;
+}
+
+.half-right {
+  background: #fff;
+}
+
+.half-right view {
+  border-bottom: 1px solid #f7f7f7;
+}
+
+.current_left_select {
+  background: #fff;
+}
+
+.current_right_select {
+  background: #fff;
+  color: rgba(63,81,181,1);
+}
+
+.nav-child.active .nav-title {
+  color: rgba(63,81,181,1);
+}
+
+.nav-child.active .icon {
+  border-bottom: 4px solid rgba(63,81,181,1);
+  border-top: 0;
+}
+
+@keyframes slidown {
+  from {
+    transform: translateY(-100%);
+  }
+
+  to {
+    transform: translateY(0%);
+  }
+}
+
+.slidown {
+  display: block;
+  animation: slidown 0.2s ease-in both;
+}
+
+@keyframes slidup {
+  from {
+    transform: translateY(0%);
+  }
+
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+.z-height {
+  overflow-y: scroll;
+  background: #fff;
+  padding-top: 20rpx;
+}
+
+.slidup {
+  display: block;
+  animation: slidup 0.2s ease-in both;
+}
+
+.disappear {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.slidowntop {
+  display: flex;
+  flex-direction: row;
+  padding: 20rpx 24rpx 10rpx 24rpx;
+}
+
+.emptyall {
+  margin-left: 475rpx;
+  color: rgba(63,81,181,1);
+}
+
+.emptyallright {
+  width: 80rpx;
+  text-align: center;
+}
+
+.endselect {
+  width: 350rpx;
+  text-align: left;
+}
+
+.return {
+  margin-left: 200rpx;
+  color: rgba(63,81,181,1);
+}
+
+.slidowncenter {
+  margin-top: 20rpx;
+  padding-top: 20rpx;
+  padding-left: 24rpx;
+  display: flex;
+  flex-direction: row;
+  align-content: space-between;
+  border-top: solid #d1d3d4 1rpx;
+}
+
+.slidownbottom {
+  margin-top: 10rpx;
+  padding: 10rpx;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.sortitem {
+  border-bottom: solid #f7f7f7 1rpx;
+  justify-content: space-between;
+  padding: 20rpx 30rpx;
+}
+
+.sortitem.active {
+  color: rgba(63,81,181,1);
+}
+
+.container_hd {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow-y: scroll;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 600rpx;
+}
+
+.more_one_level_item{
+  margin-bottom: 50rpx;
+}
+
+.more_item_title{
+  font-size: 28rpx;
+  color: rgba(83,83,83,1);
+  font-weight: bold;
+  margin-bottom: 24rpx;
+}
+
+.more_two_level_item{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.two_level_item{
+  height: 56rpx;
+  line-height: 56rpx;
+  text-align: center;
+  border-radius: 28rpx;
+  background: rgba(63,81,181,0.08);
+  color: rgba(109,114,120,1);
+  font-size: 26rpx;
+  padding: 0 56rpx;
+  margin-right: 24rpx;
+  margin-bottom: 20rpx;
+}
+
+.btn_group_box{
+  width: 100%;
+  height: 128rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 36rpx;
+  box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.06); 
+  background: #fff;
+}
+
+.no_choose_btn{
+  width: 232rpx;
+  height: 80rpx;
+  border-radius: 8rpx;
+  background: rgba(240,240,240,1);
+  text-align: center;
+  line-height: 80rpx;
+  font-size: 32rpx;
+  color: rgba(147,147,170,1);
+}
+
+.sure_btn{
+  width: 232rpx;
+  height: 80rpx;
+  border-radius: 8rpx;
+  background: rgba(63,81,181,1);
+  text-align: center;
+  line-height: 80rpx;
+  font-size: 32rpx;
+  color: rgba(255,255,255,1);
+}

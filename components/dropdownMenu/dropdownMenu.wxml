@@ -1,0 +1,63 @@
+<view class="menu_title">
+  <view class="nav-child {{menuTitleID == item.id? 'active' : ''}}" wx:for="{{dropDownMenu}}" wx:key="label"
+    bindtap="clickMenuTitleFuc" data-type="{{item.type}}" data-titleID="{{item.id}}">
+    <view class="nav-title">{{item.label}}</view>
+    <view class="icon"></view>
+  </view>
+</view>
+<view class="menu_details_box">
+  <!-- 左右结构 -->
+  <view class="district {{isShowLeftRightType ? 'show' : 'disappear'}} ">
+    <view class="half half-left">
+      <view class="{{district_left_select == item.id ? 'current_left_select' : ''}}" wx:for="{{leftRightMenuDataLeft}}"
+        bindtap="selectDistrictLeft" data-model='{{item}}' wx:key="unique">
+        {{item.title}}
+      </view>
+    </view>
+    <view class="half half-right">
+      <view class="{{district_right_select == item.id ? 'current_right_select' : ''}}"
+        wx:for="{{leftRightMenuDataRight}}" bindtap="selectDistrictRight" data-model='{{item}}' wx:key="unique">
+        {{item.title}}
+      </view>
+    </view>
+    <!-- 按钮 -->
+    <view class="btn_group_box">
+      <view class="no_choose_btn" bindtap="clickNoChooseFuc">不限条件</view>
+      <view class="sure_btn" bindtap="clickNoChooseFuc">确 定</view>
+    </view>
+  </view>
+  <!-- 列表结构 -->
+  <view class="container container_hd {{isShowListType ? 'show' : 'disappear'}} ">
+    <view class='z-height'>
+      <view>
+        <block wx:for="{{listMenuData}}" wx:key="unique">
+          <view class="sortitem {{selected_source_id==item.id ? ' active ' : ' '}}" data-model='{{item}}'
+            bindtap='selectSourceItem'> {{item.title}}</view>
+        </block>
+      </view>
+      <view class="btn_group_box">
+        <view class="no_choose_btn" bindtap="clickNoChooseFuc">不限条件</view>
+        <view class="sure_btn" bindtap="clickNoChooseFuc">确 定</view>
+      </view>
+    </view>
+  </view>
+  <!-- 更多 -->
+  <view class="container container_hd {{isShowMoreType ? 'show' : 'disappear'}} ">
+    <view class='z-height'>
+      <view>
+        <block wx:for="{{moreMenuData}}" wx:key="unique">
+          <view class="more_one_level_item">
+            <view class="more_item_title">{{item.title}}</view>
+            <view class="more_two_level_item">
+              <view wx:for="{{item.children}}" wx:key="unique" class="two_level_item">{{item.title}}</view>
+            </view>
+          </view>
+        </block>
+      </view>
+      <view class="btn_group_box">
+      <view class="no_choose_btn" bindtap="clickNoChooseFuc">不限条件</view>
+      <view class="sure_btn" bindtap="clickNoChooseFuc">确 定</view>
+    </view>
+    </view>
+  </view>
+</view>
