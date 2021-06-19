@@ -1,23 +1,25 @@
 <view class="menu_title">
-  <view class="nav-child {{menuTitleID == item.id? 'active' : ''}}" wx:for="{{dropDownMenu}}" wx:key="label"
-    bindtap="clickMenuTitleFuc" data-type="{{item.type}}" data-titleID="{{item.id}}">
+  <view class="nav-child {{menuTitleID == item.id && isShowDropdownItem ? 'active' : ''}}" wx:for="{{dropDownMenu}}"
+    wx:key="label" bindtap="clickMenuTitleFuc" data-type="{{item.type}}" data-titleID="{{item.id}}">
     <view class="nav-title">{{item.label}}</view>
     <view class="icon"></view>
   </view>
 </view>
-<view class="menu_details_box">
+<view class="menu_details_box {{isShowDropdownItem == null?'':isShowDropdownItem?'menu_down':'menu_up'}}">
   <!-- 左右结构 -->
-  <view class="district {{isShowLeftRightType ? 'show' : 'disappear'}} ">
-    <view class="half half-left">
-      <view class="{{district_left_select == item.id ? 'current_left_select' : ''}}" wx:for="{{leftRightMenuDataLeft}}"
-        bindtap="selectDistrictLeft" data-model='{{item}}' wx:key="unique">
-        {{item.title}}
+  <view wx:if="{{isShowLeftRightType}}" class="left_right_container">
+    <view class="left_right_box">
+      <view class="left_box">
+        <view class="{{left_select == item.id && 'current_left_select'}} left_item"
+          wx:for="{{leftRightMenuDataLeft}}" bindtap="selectDistrictLeft" data-model='{{item}}' wx:key="unique">
+          {{item.title}}
+        </view>
       </view>
-    </view>
-    <view class="half half-right">
-      <view class="{{district_right_select == item.id ? 'current_right_select' : ''}}"
-        wx:for="{{leftRightMenuDataRight}}" bindtap="selectDistrictRight" data-model='{{item}}' wx:key="unique">
-        {{item.title}}
+      <view class="right_box">
+        <view class="{{right_select == item.id &&'current_right_select'}} right_item"
+          wx:for="{{leftRightMenuDataRight}}" bindtap="selectDistrictRight" data-model='{{item}}' wx:key="unique">
+          {{item.title}}
+        </view>
       </view>
     </view>
     <!-- 按钮 -->
@@ -27,7 +29,7 @@
     </view>
   </view>
   <!-- 列表结构 -->
-  <view class="container container_hd {{isShowListType ? 'show' : 'disappear'}} ">
+  <!-- <view class="container container_hd {{isShowListType ? 'show' : 'disappear'}} ">
     <view class='z-height'>
       <view>
         <block wx:for="{{listMenuData}}" wx:key="unique">
@@ -40,9 +42,9 @@
         <view class="sure_btn" bindtap="clickNoChooseFuc">确 定</view>
       </view>
     </view>
-  </view>
+  </view> -->
   <!-- 更多 -->
-  <view class="container container_hd {{isShowMoreType ? 'show' : 'disappear'}} ">
+  <!-- <view class="container container_hd {{isShowMoreType ? 'show' : 'disappear'}} ">
     <view class='z-height'>
       <view>
         <block wx:for="{{moreMenuData}}" wx:key="unique">
@@ -55,9 +57,9 @@
         </block>
       </view>
       <view class="btn_group_box">
-      <view class="no_choose_btn" bindtap="clickNoChooseFuc">不限条件</view>
-      <view class="sure_btn" bindtap="clickNoChooseFuc">确 定</view>
+        <view class="no_choose_btn" bindtap="clickNoChooseFuc">不限条件</view>
+        <view class="sure_btn" bindtap="clickNoChooseFuc">确 定</view>
+      </view>
     </view>
-    </view>
-  </view>
+  </view> -->
 </view>

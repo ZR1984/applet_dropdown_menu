@@ -8,15 +8,7 @@ Page({
       id: 1,
       label: '产业',
       type: 'leftRight',
-      children: [{
-          id: 0,
-          title: '不限',
-          childModel: [{
-            id: '0-1',
-            title: '不限'
-          }]
-        },
-
+      children: [
         {
           id: 1,
           title: '一级产业',
