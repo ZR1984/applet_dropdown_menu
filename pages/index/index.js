@@ -8,8 +8,7 @@ Page({
       id: 1,
       label: '产业',
       type: 'leftRight',
-      children: [
-        {
+      children: [{
           id: 1,
           title: '一级产业',
           childModel: [{
@@ -164,4 +163,7 @@ Page({
       ]
     }],
   },
+  selectedItem(e) {
+    console.log(e.detail);
+  }
 })

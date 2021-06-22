@@ -42,17 +42,15 @@
 }
 
 .menu_down {
-  animation: menuDown 0.5s ease-in both;
+  animation: menuDown 0.3s linear both;
 }
 
 .menu_up {
-  animation: menuUp 0.5s ease-in both;
+  animation: menuUp 0.3s linear both;
 }
 
 .left_right_container {
-  position: absolute;
   width: 100%;
-  z-index: 9;
   overflow-y: scroll;
 }
 
@@ -232,7 +230,7 @@
   background: rgba(240, 240, 240, 1);
   text-align: center;
   line-height: 80rpx;
-  font-size: 32rpx;
+  font-size: 28rpx;
   color: rgba(147, 147, 170, 1);
 }
 
@@ -243,7 +241,7 @@
   background: rgba(63, 81, 181, 1);
   text-align: center;
   line-height: 80rpx;
-  font-size: 32rpx;
+  font-size: 28rpx;
   color: rgba(255, 255, 255, 1);
 }
 

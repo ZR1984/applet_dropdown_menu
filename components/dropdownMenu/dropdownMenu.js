@@ -29,11 +29,8 @@ Component({
     leftRightMenuDataRight: [],
     listMenuData: [],
     moreMenuData: [],
-    left_select: '',
-    right_select: '',
-    selected_style_id: 0,
-    selected_source_id: 0,
-    selected_filter_id: 0,
+    selectedLeftID: null,
+    selectedId: null,
   },
   methods: {
     clickMenuTitleFuc(e) {
@@ -59,6 +56,9 @@ Component({
                 item.children.forEach((j, index) => {
                   newArrLeft.push(j)
                   if (index == 0) {
+                    this.setData({
+                      selectedLeftID: j.id
+                    })
                     j.childModel.forEach(i => {
                       newArrRight.push(i)
                     })
@@ -109,52 +109,34 @@ Component({
     },
 
     selectDistrictLeft(e) {
-      var model = e.target.dataset.model.childModel;
-      var selectedId = e.target.dataset.model.id
+      var model = e.target.dataset.model.childModel
       this.setData({
         leftRightMenuDataRight: model ? model : '',
-        left_select: selectedId,
-        right_select: '',
+        selectedLeftID: e.target.dataset.model.id
       })
     },
 
     selectDistrictRight(e) {
-      var selectedId = e.target.dataset.model.id
       this.setData({
-        right_select: selectedId,
-      })
-      this.triggerEvent("selectedItem", {
-        selectedId: selectedId,
+        selectedId: e.target.dataset.model.id,
       })
     },
 
-    selectSourceItem: function (e) {
-      var selectedId = e.target.dataset.model.id
+    selectSourceItem(e) {
       this.setData({
-        selected_source_id: selectedId,
-      })
-      this.triggerEvent("selectedItem", {
-        selectedId: selectedId,
+        selectedId: e.target.dataset.model.id,
       })
     },
 
-    selectFilterItem: function (e) {
-      var selectedId = e.target.dataset.model.id
+    selectFilterItem(e) {
       this.setData({
-        selected_filter_id: selectedId,
-      })
-      this.triggerEvent("selectedItem", {
-        selectedId: selectedId,
+        selectedId: e.target.dataset.model.id,
       })
     },
 
-    selectStyleItem: function (e) {
-      var selectedId = e.target.dataset.model.id
+    selectStyleItem(e) {
       this.setData({
-        selected_style_id: selectedId,
-      })
-      this.triggerEvent("selectedItem", {
-        selectedId: selectedId,
+        selectedId: e.target.dataset.model.id,
       })
     },
 
@@ -163,8 +145,15 @@ Component({
         isShowListType: false,
         isShowLeftRightType: false,
         isShowMoreType: false,
-        menuTitleID: null
+        menuTitleID: null,
+        isShowDropdownItem: false,
       })
+    },
+    clickSubmitFuc() {
+      this.triggerEvent("selectedItem", {
+        selectedId: this.data.selectedId
+      })
+      this.clickNoChooseFuc()
     }
   }
 })
